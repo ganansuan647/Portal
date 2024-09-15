@@ -1,38 +1,38 @@
 {
-  "title": "Tarification Simple et Transparente",
-  "subTitle": "Augmentez l'efficacité avec les plans clairs et axés sur la valeur de ScrewFast.",
-  "badge": "Meilleure valeur",
-  "thirdOption": "Solutions Entreprise?",
-  "btnText": "Obtenez un Devis Personnalisé",
+  "title": "简单透明的定价",
+  "subTitle": "通过ScrewFast清晰且以价值为导向的计划提高效率。",
+  "badge": "最佳价值",
+  "thirdOption": "企业解决方案？",
+  "btnText": "获取定制报价",
 
   "starterKit": {
-    "name": "Kit de Démarrage",
-    "description": "Meilleure option pour les projets de bricolage",
+    "name": "入门工具包",
+    "description": "最适合DIY项目的选项",
     "price": "$49",
     "cents": ".00",
-    "billingFrequency": "USD / mensuel",
+    "billingFrequency": "美元 / 每月",
     "features": [
-      "Outils matériels essentiels",
-      "Accès aux guides et tutoriels",
-      "Support standard"
+      "基本手动工具",
+      "访问指南和教程",
+      "标准支持"
     ],
-    "purchaseBtnTitle": "Obtenez le Kit de Démarrage",
+    "purchaseBtnTitle": "获取入门工具包",
     "purchaseLink": "#"
   },
 
   "professionalToolbox": {
-    "name": "Boîte à Outils Professionnelle",
-    "description": "Idéale pour les utilisations à grande échelle",
+    "name": "专业工具箱",
+    "description": "适合大规模使用",
     "price": "$89",
     "cents": ".00",
-    "billingFrequency": "USD / mensuel",
+    "billingFrequency": "美元 / 每月",
     "features": [
-      "Sélection d'outils premium",
-      "Support prioritaire",
-      "Contenu et offres exclusifs",
-      "Remises sur les commandes en gros"
+      "优质工具选择",
+      "优先支持",
+      "独家内容和优惠",
+      "批量订单折扣"
     ],
-    "purchaseBtnTitle": "Obtenez la Boîte à Outils Professionnelle",
+    "purchaseBtnTitle": "获取专业工具箱",
     "purchaseLink": "#"
   }
 }

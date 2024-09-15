@@ -1,5 +1,5 @@
 ---
-// Import the necessary components
+// 导入必要的组件
 import MainLayout from "@/layouts/MainLayout.astro";
 import HeroSection from "@components/sections/landing/HeroSection.astro";
 import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
@@ -25,7 +25,7 @@ const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-];
+};
 ---
 
 <MainLayout lang="zh">
@@ -36,75 +36,75 @@ const avatarSrcs: Array<string> = [
   />
 
   <HeroSection
-    title=`Équipez vos projets avec <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>`
-    subTitle="Outils matériels de haute qualité et services de construction experts pour tous les besoins en projet."
-    primaryBtn="Commencez à explorer"
+    title=`用 <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span> 装备您的项目`
+    subTitle="高质量的硬件工具和专业施工服务，满足所有项目需求。"
+    primaryBtn="开始探索"
     primaryBtnURL={getRelativeLocaleUrl("zh", "products")}
-    secondaryBtn="Contacter l'équipe commerciale"
+    secondaryBtn="联系销售团队"
     secondaryBtnURL={getRelativeLocaleUrl("zh", "contact")}
     withReview={true}
     avatars={avatarSrcs}
     rating=`<span class="font-bold">4.8</span> / 5`
     starCount={4}
-    reviews=`À partir de plus de <span class="font-bold">12,8k</span> avis`
+    reviews=`来自超过 <span class="font-bold">12.8k</span> 条评论`
     src={heroImage}
-    alt="Pile de boîtes de produits ScrewFast contenant des outils matériels assortis"
+    alt="装有各种硬件工具的ScrewFast产品箱堆"
   />
 
   <ClientsSection
-    title="Faites confiance aux leaders de l'industrie"
-    subTitle="Découvrez la fiabilité choisie par les géants de l'industrie."
+    title="信任行业领袖"
+    subTitle="发现行业巨头选择的可靠性。"
   />
 
   <FeaturesGeneral
-    title="Répondre aux exigences de l'industrie"
-    subTitle="Chez ScrewFast, nous relevons les défis uniques rencontrés dans les secteurs du matériel et de la construction. Des outils de pointe aux services experts, nous sommes déterminés à vous aider à surmonter les obstacles et à atteindre vos objectifs."
+    title="满足行业要求"
+    subTitle="在ScrewFast，我们应对硬件和建筑行业面临的独特挑战。从尖端工具到专业服务，我们致力于帮助您克服障碍，实现目标。"
     src={featureImage}
-    alt="Produits ScrewFast dans des boîtes flottantes"
+    alt="ScrewFast产品在漂浮的箱子中"
     features={features}
   />
 
   <FeaturesNavs
-    title=`Personnalisez les offres de <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span> pour répondre parfaitement à vos besoins en matériel et en construction.`
+    title=`定制 <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span> 的产品以完美满足您的硬件和建筑需求。`
     tabs={[
       {
-        heading: "Outils de pointe",
+        heading: "尖端工具",
         content:
-          "Optimisez vos projets avec les outils de pointe de ScrewFast. Faites l'expérience d'une efficacité accrue dans la gestion de la construction avec nos solutions automatisées sophistiquées.",
+          "使用ScrewFast的尖端工具优化您的项目。体验通过我们复杂的自动化解决方案提高施工管理效率。",
         svg: "tools",
         src: tools,
-        alt: "Équipement lourd jaune et noir sur un champ d'herbe brune",
+        alt: "黄色和黑色重型设备在棕色草地上",
         first: true,
       },
       {
-        heading: "Tableaux de bord intuitifs",
+        heading: "直观仪表板",
         content:
-          "Naviguez facilement avec les tableaux de bord intuitifs de ScrewFast. Configurez et supervisez vos projets de manière transparente, avec des interfaces conviviales conçues pour une gestion efficace des flux de travail rapide et efficace.",
+          "使用ScrewFast的直观仪表板轻松导航。无缝设置和监控您的项目，提供友好的界面，旨在高效管理快速有效的工作流程。",
         svg: "dashboard",
         src: dashboard,
-        alt: "Capture d'écran ou représentation graphique du tableau de bord intuitif",
+        alt: "直观仪表板的屏幕截图或图示",
         second: true,
       },
       {
-        heading: "Fonctionnalités robustes",
+        heading: "强大功能",
         content:
-          "Minimisez la complexité, maximisez la productivité. Les fonctionnalités robustes de ScrewFast sont conçues pour rationaliser votre processus de construction, offrant des résultats qui se distinguent par leur excellence.",
+          "最小化复杂性，最大化生产力。ScrewFast的强大功能旨在简化您的建筑流程，提供卓越的结果。",
         svg: "house",
         src: construction,
-        alt: "Structure métallique grise d'un bâtiment près d'une grue à tour pendant la journée",
+        alt: "白天靠近塔吊的灰色金属建筑结构",
       },
     ]}
   />
 
   <TestimonialsSection
-    title="Accélérez vos projets"
-    subTitle="Chez ScrewFast, nous assurons un démarrage rapide avec une configuration de compte instantanée. Découvrez la vitesse de la construction redéfinie."
+    title="加速您的项目"
+    subTitle="在ScrewFast，我们确保快速启动，提供即时账户设置。体验重新定义的施工速度。"
     testimonials={[
       {
         content:
-          "ScrewFast a considérablement augmenté l'efficacité de notre projet. La configuration a été instantanée et leurs temps de réponse rapides sont phénoménaux. Vraiment un changement de jeu dans le support matériel et de construction !",
-        author: "Samantha Ruiz",
-        role: "Directrice des opérations | ConstructIt Inc.",
+          "ScrewFast显著提高了我们项目的效率。设置是即时的，他们的快速响应时间是惊人的。真的是硬件和建筑支持的游戏规则改变者！",
+        author: "萨曼莎·鲁伊斯",
+        role: "运营总监 | ConstructIt Inc.",
         avatarSrc:
           "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
       },
@@ -113,33 +113,33 @@ const avatarSrcs: Array<string> = [
       {
         count: "70k+",
         description:
-          "clients équipés — des bricoleurs aux grandes entreprises de construction",
+          "已装备客户 — 从业余爱好者到大型建筑公司",
       },
       {
         count: "35%",
         description:
-          "hausse de l'efficacité des projets avec les outils et services de ScrewFast",
+          "使用ScrewFast工具和服务提高项目效率",
       },
       {
-        count: "15,3%",
+        count: "15.3%",
         description:
-          "réduction des coûts de maintenance rapportée par des clients à long terme",
+          "长期客户报告的维护成本降低",
       },
       {
         count: "2x",
         description:
-          "assemblage plus rapide grâce à des solutions de fixation innovantes",
+          "通过创新的固定解决方案实现更快的组装",
       },
     ]}
   />
 
   <PricingSection pricing={pricing} />
 
-  <FAQ title="Questions<br />fréquemment posées" faqs={faqs} />
+  <FAQ title="常见问题<br />解答" faqs={faqs} />
 
   <HeroSectionAlt
-    title="Construisons ensemble"
-    subTitle="ScrewFast est un modèle open source, méticuleusement conçu avec les frameworks Astro, Tailwind CSS et Preline UI."
+    title="让我们一起建设"
+    subTitle="ScrewFast是一个开源模型，精心设计，使用Astro、Tailwind CSS和Preline UI框架。"
     url="https://github.com/mearashadowfax/ScrewFast"
   />
 </MainLayout>

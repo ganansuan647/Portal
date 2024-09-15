@@ -28,13 +28,13 @@ export default defineConfig({
       i18n: {
         defaultLocale: "en", // All urls that don't contain `zh` after `https://seismicye.top` will be treated as default locale, i.e. `en`
         locales: {
-          en: "en", // The `defaultLocale` value must present in `locales` keys
-          zh: "zh", // 使用标准中文语言代码
+          en: "en", // The `defaultLocale` value must be included in the `locales` keys
+          zh: "zh", // This represents the Chinese locale
         },
       },
     }),
     starlight({
-      title: "ScrewFast Docs",
+      title: "SeismicYe Group Docs",
       defaultLocale: "root",
       // https://github.com/withastro/starlight/blob/main/packages/starlight/CHANGELOG.md
       // If no Astro and Starlight i18n configurations are provided, the built-in default locale is used in Starlight and a matching Astro i18n configuration is generated/used.

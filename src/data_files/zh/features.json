@@ -1,22 +1,22 @@
 [
   {
-    "heading": "Équipes dédiées",
-    "content": "Bénéficiez de nos équipes engagées qui veillent à ce que votre réussite soit personnelle. Comptez sur un accompagnement expert et des résultats exceptionnels tout au long de votre parcours de projet.",
+    "heading": "专门团队",
+    "content": "利用我们专注的团队，确保您的成功是个性化的。依靠专业的支持和卓越的成果，伴随您整个项目的旅程。",
     "svg": "groups"
   },
   {
-    "heading": "Simplicité et accessibilité",
-    "content": "Trouvez des solutions faciles à utiliser et abordables avec la gamme d'outils et d'équipements de ScrewFast. Nos produits simplifient l'approvisionnement et permettent de respecter les budgets de projet.",
+    "heading": "简单易用",
+    "content": "通过ScrewFast的工具和设备系列，找到易于使用且价格合理的解决方案。我们的产品简化了采购流程，并帮助您遵守项目预算。",
     "svg": "verified"
   },
   {
-    "heading": "Documentation complète",
-    "content": "Intégrez facilement grâce aux guides exhaustifs et aux bibliothèques de ScrewFast. Réalisez une adoption de produit sans faille avec notre ensemble complet de documentation conçu pour votre succès.",
+    "heading": "完整文档",
+    "content": "通过ScrewFast的全面指南和文档库轻松集成。利用我们为您的成功设计的完整文档集，实现无缝的产品采用。",
     "svg": "books"
   },
   {
-    "heading": "Conception centrée sur l'utilisateur",
-    "content": "Faites l'expérience de la différence avec la conception axée sur l'utilisateur de ScrewFast, où la fonctionnalité rencontre la praticité pour une expérience de travail améliorée.",
+    "heading": "以用户为中心的设计",
+    "content": "体验ScrewFast以用户为中心的设计，功能与实用性相结合，提升工作体验。",
     "svg": "frame"
   }
 ]

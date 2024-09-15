@@ -1,31 +1,31 @@
 ---
-// Import the necessary components
+// 导入必要的组件
 import MainLayout from "@/layouts/MainLayout.astro";
 import ContactSection from "@components/sections/misc/ContactSection.astro";
 import { SITE } from "@data/constants";
 
-const pageTitle: string = `Contact | ${SITE.title}`;
+const pageTitle: string = `联系我们 | ${SITE.title}`;
 ---
 
-<!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
+<!--利用MainLayout作为页面的外部布局，并定义SEO目的的元数据-->
 <MainLayout
   title={pageTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/contact",
-    "url": "https://screwfast.uk/contact",
-    "name": "Contact Us | ScrewFast",
+    "@id": "https://seismicye.top/contact",
+    "url": "https://seismicye.top/contact",
+    "name": "联系我们 | 叶爱君课题组",
     "description":
-      "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
+      "有问题或想讨论项目吗？请联系我们，让我们利用我们的工具和服务共同制定完美的解决方案。",
     "isPartOf": {
       "@type": "WebSite",
-      "url": "https://screwfast.uk",
+      "url": "https://seismicye.top",
       "name": "ScrewFast",
       "description":
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+        "ScrewFast 提供顶级的硬件工具和专业的施工服务，以满足您所有的项目需求。",
     },
-    "inLanguage": "en-US"
+    "inLanguage": "zh-CN"
   }}
 >
   <ContactSection />
