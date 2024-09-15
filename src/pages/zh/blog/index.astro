@@ -1,0 +1,116 @@
+---
+// 导入必要的组件、模块和类型
+import MainLayout from "@/layouts/MainLayout.astro";
+import CardBlog from "@components/ui/cards/CardBlog.astro";
+import CardBlogRecent from "@components/ui/cards/CardBlogRecent.astro";
+import CardInsight from "@components/ui/cards/CardInsight.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { SITE } from "@data/constants";
+
+// 获取所有中文博客文章并根据发布日期排序
+
+const chineseBlogEntries = await getCollection("blog", ({ id }) => {
+  return id.startsWith("zh/");
+});
+
+const chineseInsightsEntries = await getCollection("insights", ({ id }) => {
+  return id.startsWith("zh/");
+});
+
+const blogPosts: CollectionEntry<"blog">[] = chineseBlogEntries.sort(
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+// 获取所有见解文章
+const insightPosts: CollectionEntry<"insights">[] = chineseInsightsEntries;
+
+// 将最新的文章与其他文章分开
+const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
+const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
+
+// 定义页面内容的变量
+const title: string = "您通往建筑卓越的桥梁";
+const subTitle: string =
+  "探索ScrewFast的最新新闻、技巧和分析，以改善您的建筑项目。从产品推荐到项目管理策略，我们的博客是您在工具和建筑方面的必备资源。";
+const secondTitle: string = "视角";
+const secondSubTitle: string =
+  "通过ScrewFast专家团队的分析，保持对建筑行业最新趋势和发展的了解。";
+
+const pageTitle: string = `博客 | ${SITE.title}`;
+---
+
+<MainLayout lang="zh"
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://seismicye.top/zh/blog",
+    "url": "https://seismicye.top/zh/blog",
+    "name": "博客 | ScrewFast",
+    "description": "通过ScrewFast专家团队的分析，保持对建筑行业最新趋势和发展的了解。",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://seismicye.top/zh",
+      "name": "ScrewFast",
+      "description": "ScrewFast提供一流的建筑工具和专业服务，以满足您所有项目的需求。"
+    },
+    "inLanguage": "zh"
+  }}
+>
+  <section
+    class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full"
+  >
+    <!--页面标题-->
+    <div class="mx-auto max-w-3xl text-left sm:text-center">
+      <h1
+        class="block text-balance text-4xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-5xl lg:text-6xl"
+      >
+        {title}
+      </h1>
+
+      <p
+        class="mt-4 text-pretty text-lg text-neutral-600 dark:text-neutral-400"
+      >
+        {subTitle}
+      </p>
+    </div>
+  </section>
+
+  <section
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <!--博客文章网格-->
+    <div class="grid gap-6 lg:grid-cols-2">
+      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} blogLocale="zh"/>)}
+    </div>
+  </section>
+  <!--最新博客文章-->
+  <section
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <CardBlogRecent blogEntry={mostRecentPost} recentBlogLocale="zh" />
+  </section>
+  <!--见解部分-->
+  <section
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+      <h2
+        class="text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+      >
+        {secondTitle}
+      </h2>
+      <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
+        {secondSubTitle}
+      </p>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        insightPosts.map((insightEntry) => (
+          <CardInsight insightEntry={insightEntry} insightLocale="zh" />
+        ))
+      }
+    </div>
+  </section>
+</MainLayout>

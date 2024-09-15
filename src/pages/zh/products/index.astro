@@ -1,0 +1,138 @@
+---
+// 导入必要的组件
+import MainLayout from "@/layouts/MainLayout.astro";
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+import CardSmall from "@components/ui/cards/CardSmall.astro";
+import CardWide from "@components/ui/cards/CardWide.astro";
+import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
+import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
+
+// 导入Astro中的必要函数
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+// 获取所有与产品相关的内容并按main.id排序
+const product: CollectionEntry<"products">[] = (
+  await getCollection("products", ({ id }) => {
+    return id.startsWith("zh/");
+  })
+).sort(
+  (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
+    a.data.main.id - b.data.main.id
+);
+
+// 定义页面内容的变量
+const title: string = "产品";
+const subTitle: string =
+  "探索ScrewFast工具的耐用性和精确性，旨在满足专业人士和爱好者的需求。我们的每一款产品都经过精心制造，设计持久，确保您在每个任务中都能拥有合适的工具。";
+
+// 将在组件中渲染的推荐数据
+const testimonials = [
+  {
+    content:
+      "自从我们采用ScrewFast的工具以来，我们的建筑工地效率大幅提升。六角螺栓的耐用性和机螺钉的精确性无与伦比。与真正理解行业日常需求的公司合作，令人耳目一新。",
+    author: "杰森·克拉克",
+    role: "工地主管 | TopBuild",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    avatarAlt: "图片描述",
+  },
+
+  {
+    content:
+      "作为一名室内设计师，我总是在寻找高质量的材料和工具，帮助我实现我的创意。ScrewFast的混合螺钉系列彻底改变了我的项目，提供了完美的质量和多样性组合。卓越的客户支持更是锦上添花！",
+    author: "玛丽亚·冈萨雷斯",
+    role: "室内设计师 | Creative Spaces",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    avatarAlt: "图片描述",
+  },
+
+  {
+    content:
+      "我是一名专业木匠，已有15年以上的经验，我可以诚实地说，ScrewFast的螺栓和螺母是我使用过的最好的产品之一。它们的粘合力无与伦比，我对每个接头和部件都充满信心。此外，服务也无可挑剔——他们真的关心我的项目成功。",
+    author: "理查德·金",
+    role: "首席木匠 | WoodWright",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    avatarAlt: "图片描述",
+  },
+];
+---
+
+<MainLayout
+  title="产品 | ScrewFast"
+  lang="zh"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://screwfast.uk/zh/products",
+    url: "https://screwfast.uk/zh/products",
+    name: "工具 | ScrewFast",
+    description:
+      "探索ScrewFast工具的耐用性和精确性，旨在满足专业人士和爱好者的需求。",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://screwfast.uk/zh",
+      name: "ScrewFast",
+      description:
+        "ScrewFast提供一流的工具和专业的建筑服务，以满足您所有项目的需求。",
+    },
+    inLanguage: "zh",
+  }}
+>
+  <div
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+      <div class="flex items-center gap-12">
+        <h1
+          class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+        >
+          {title}
+        </h1>
+        {
+          subTitle && (
+            <p class="hidden max-w-screen-sm text-pretty text-neutral-600 dark:text-neutral-400 md:block">
+              {subTitle}
+            </p>
+          )
+        }
+      </div>
+      <PrimaryCTA
+        title="客户故事"
+        url="#testimonials"
+        noArrow={true}
+      />
+    </div>
+    <!--以交替样式显示产品。替代产品采用不同的卡片样式。-->
+    <!--遍历所有产品条目，并根据其位置显示CardSmall或CardWide。-->
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+      {
+        product.map((product, index) => {
+          const position = index % 4;
+          if (position === 0 || position === 3) {
+            return <CardSmall product={product} productLocale="zh" />;
+          } else {
+            return <CardWide product={product} productLocale="zh" />;
+          }
+        })
+      }
+    </section>
+  </div>
+  <!--功能统计部分-->
+  <FeaturesStatsAlt
+    title="为什么选择ScrewFast？"
+    subTitle="用ScrewFast工具将您的想法转化为切实的成果。无论您是从桌角的草图开始，还是深入一个完整的建筑项目，我们的工具都旨在帮助您自信地构建。"
+    benefits={[
+      "坚固可靠的工具，提供持久的性能。",
+      "适应现代建筑需求的创新解决方案。",
+      "专注于您项目成功的客户支持。",
+    ]}
+  />
+  <!--推荐部分-->
+  <TestimonialsSectionAlt
+    title="客户的声音"
+    testimonials={testimonials}
+  />
+</MainLayout>

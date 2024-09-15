@@ -17,6 +17,11 @@ Disallow:
 Allow: /
 Crawl-delay: 2
 
+User-agent: Baiduspider
+Disallow:
+Allow: /
+Crawl-delay: 5
+
 User-agent: *
 Disallow: /
 
