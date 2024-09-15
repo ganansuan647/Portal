@@ -1,0 +1,30 @@
+---
+// Import the necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import ContactSection from "@components/sections/zh/ContactSection_fr.astro";
+---
+
+<!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
+<MainLayout
+  title="Contact | ScrewFast"
+  lang="zh"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://seismicye.top//zh/contact",
+    url: "https://seismicye.top//zh/contact",
+    name: "Nous Contacter | ScrewFast",
+    description:
+      "您有疑问或想讨论项目？联系我们，我们共同利用工具和服务制定完美解决方案。",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://seismicye.top//zh/",
+      name: "ScrewFast",
+      description:
+        "ScrewFast 提供高质量的硬件工具和专业施工服务，以满足您所有项目需求。",
+    },
+    inLanguage: "zh",
+  }}
+>
+  <ContactSection />
+</MainLayout>

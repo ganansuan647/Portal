@@ -7,15 +7,15 @@ import starlight from "@astrojs/starlight";
 // https://astro.build/config
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
-  site: "https://screwfast.uk",
+  site: "https://seismicye.top",
   image: {
     domains: ["images.unsplash.com"],
   },
   // i18n: {
   //   defaultLocale: "en",
-  //   locales: ["en", "fr"],
+  //   locales: ["en", "zh"],
   //   fallback: {
-  //     fr: "en",
+  //     zh: "en",
   //   },
   //   routing: {
   //     prefixDefaultLocale: false,
@@ -26,10 +26,10 @@ export default defineConfig({
     tailwind(),
     sitemap({
       i18n: {
-        defaultLocale: "en", // All urls that don't contain `fr` after `https://screwfast.uk/` will be treated as default locale, i.e. `en`
+        defaultLocale: "en", // All urls that don't contain `zh` after `https://seismicye.top` will be treated as default locale, i.e. `en`
         locales: {
           en: "en", // The `defaultLocale` value must present in `locales` keys
-          fr: "fr",
+          zh: "zh", // 使用标准中文语言代码
         },
       },
     }),
@@ -51,7 +51,7 @@ export default defineConfig({
         fa: { label: "Persian", lang: "fa", dir: "rtl" },
         fr: { label: "Français", lang: "fr" },
         ja: { label: "日本語", lang: "ja" },
-        "zh-cn": { label: "简体中文", lang: "zh-CN" },
+        zh: { label: "简体中文", lang: "zh" },
       },
       // https://starlight.astro.build/guides/sidebar/
       sidebar: [
@@ -63,7 +63,7 @@ export default defineConfig({
             fa: "راهنمای شروع سریع",
             fr: "Guides de Démarrage Rapide",
             ja: "クイックスタートガイド",
-            "zh-cn": "快速入门指南",
+            zh: "快速入门指南",
           },
           autogenerate: { directory: "guides" },
         },
