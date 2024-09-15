@@ -1,13 +1,13 @@
 ---
-// 导入必要的组件
+// Import necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
 import ContactSection from "@components/sections/misc/ContactSection.astro";
 import { SITE } from "@data/constants";
 
-const pageTitle: string = `联系我们 | ${SITE.title}`;
+const pageTitle: string = `Contact Us | ${SITE.title}`;
 ---
 
-<!--利用MainLayout作为页面的外部布局，并定义SEO目的的元数据-->
+<!--Use MainLayout as the outer layout for the page and define SEO metadata-->
 <MainLayout
   title={pageTitle}
   structuredData={{
@@ -15,17 +15,17 @@ const pageTitle: string = `联系我们 | ${SITE.title}`;
     "@type": "WebPage",
     "@id": "https://seismicye.top/contact",
     "url": "https://seismicye.top/contact",
-    "name": "联系我们 | 叶爱君课题组",
+    "name": "Contact Us | SeismicYe Group",
     "description":
-      "有问题或想讨论项目吗？请联系我们，让我们利用我们的工具和服务共同制定完美的解决方案。",
+      "Do you have questions or want to discuss a project? Contact us, and let's work together to create the perfect solution using our tools and services.",
     "isPartOf": {
       "@type": "WebSite",
       "url": "https://seismicye.top",
-      "name": "ScrewFast",
+      "name": "SeismicYe",
       "description":
-        "ScrewFast 提供顶级的硬件工具和专业的施工服务，以满足您所有的项目需求。",
+        "The SeismicYe Research Group is dedicated to researching the next generation of bridges for resilience.",
     },
-    "inLanguage": "zh-CN"
+    "inLanguage": "en"
   }}
 >
   <ContactSection />

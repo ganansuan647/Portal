@@ -1,5 +1,5 @@
 ---
-// Import necessary components and utilities
+// 导入必要的组件和工具
 import MainLayout from "@/layouts/MainLayout.astro";
 import AvatarBlogLarge from "@components/ui/avatars/AvatarBlogLarge.astro";
 import CardRelated from "@components/ui/cards/CardRelated.astro";
@@ -12,13 +12,13 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 
-// Update getStaticPaths for French posts
+// 更新 getStaticPaths 以支持中文文章
 export async function getStaticPaths() {
   const blogPosts = await getCollection("blog", ({ id }) =>
     id.startsWith("zh/")
   );
   return blogPosts.map((post) => {
-    const slugWithoutLang = post.slug.replace(/^zh\//, ""); // Remove the "zh/" prefix
+    const slugWithoutLang = post.slug.replace(/^zh\//, ""); // 移除 "zh/" 前缀
     return {
       params: { lang: "zh", slug: slugWithoutLang },
       props: { post },
@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 
-// Fetch related posts
+// 获取相关的文章
 const blogPosts: CollectionEntry<"blog">[] = await getCollection(
   "blog",
   ({ id }) => id.startsWith("zh/")
@@ -52,7 +52,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
                 <div
                   class="hs-tooltip inline-block [--placement:bottom] [--trigger:hover]"
                 >
-                  <!--Post metadata and author info-->
+                  <!--文章元数据和作者信息-->
                   <span
                     class="font-bold text-neutral-700 dark:text-neutral-300"
                   >
@@ -68,7 +68,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
                   <li
                     class="relative inline-block pe-6 before:absolute before:end-2 before:top-1/2 before:size-1 before:-translate-y-1/2 before:rounded-full before:bg-neutral-300 last:pe-0 last-of-type:before:hidden dark:text-neutral-400 dark:before:bg-neutral-600"
                   >
-                    {post.data.readTime} min read
+                    {post.data.readTime} 分钟阅读
                   </li>
                 </ul>
               </div>
@@ -76,13 +76,13 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
           </div>
         </div>
       </div>
-      <!--Blog post title-->
+      <!--文章标题-->
       <h2
         class="mb-3 text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-3xl"
       >
         {post.data.title}
       </h2>
-      <!--Blog post contents-->
+      <!--文章内容-->
       <div class="mb-5 space-y-5 md:mb-8 md:space-y-8">
         {
           post.data.contents.map((content: string, index: any) =>
@@ -110,7 +110,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
       <div
         class="mx-auto grid max-w-screen-lg gap-y-5 sm:flex sm:items-center sm:justify-between sm:gap-y-0"
       >
-        <!--Blog post tags-->
+        <!--文章标签-->
         <div
           class="flex flex-wrap gap-x-2 gap-y-1 sm:flex-nowrap sm:items-center sm:gap-y-0"
         >
@@ -122,7 +122,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
             ))
           }
         </div>
-        <!--Bookmark and Share buttons-->
+        <!--书签和分享按钮-->
         <div class="flex items-center justify-end gap-x-1.5">
           <Bookmark />
           <div
@@ -136,19 +136,19 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
       </div>
     </div>
     <PostFeedback
-      title="Cet article était-il utile?"
-      firstChoice="Oui"
-      secondChoice="Non"
+      title="这篇文章对你有帮助吗？"
+      firstChoice="是"
+      secondChoice="否"
     />
   </section>
 
-  <!--Related articles section-->
+  <!--相关文章部分-->
   <section class="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
     <div class="mb-10 max-w-2xl">
       <h2
         class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
       >
-        Articles connexes
+        相关的文章
       </h2>
     </div>
 

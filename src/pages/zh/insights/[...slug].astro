@@ -1,15 +1,15 @@
 ---
-// Import section components
+// 导入部分组件
 import { SITE } from "@data/constants";
 import MainLayout from "@/layouts/MainLayout.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
-// Use `getStaticPaths` to generate static routes for generated pages on build
+// 使用 `getStaticPaths` 在构建时生成静态路由
 export async function getStaticPaths() {
   const insightPosts = await getCollection("insights", ({ id }) => id.startsWith("zh/"));
   return insightPosts.map((post) => {
-    const slugWithoutLang = post.slug.replace(/^zh\//, ''); // Remove the "zh/" prefix
+    const slugWithoutLang = post.slug.replace(/^zh\//, ''); // 移除 "zh/" 前缀
     return {
       params: { lang: 'zh', slug: slugWithoutLang },
       props: { post },
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
   });
 }
 
-// Get the props for this page that define a specific insight post
+// 获取此页面的属性，定义特定的洞察文章
 const { post } = Astro.props;
 
 const { Content } = await post.render();
@@ -55,7 +55,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
               </div>
             </div>
             <p class="text-pretty text-sm font-light text-neutral-500">
-              Table of Contents:
+              目录：
             </p>
             <div id="toc" class="">
               <ul
@@ -177,7 +177,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
   document.addEventListener("DOMContentLoaded", (event) => {
     window.onscroll = onScroll;
 
-    // Set initial width of progress bar
+    // 设置进度条的初始宽度
     const progressBar = document.getElementById("progress");
     const progressBarMobile = document.getElementById("progress-mobile");
 
@@ -222,9 +222,9 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    // The article element that contains the Markdown content
+    // 包含 Markdown 内容的文章元素
     const article: HTMLElement | null = document.querySelector("article");
-    // The ToC container <ul> element
+    // 目录容器 <ul> 元素
     const tocList: HTMLElement | null = document.querySelector("#toc ul");
 
     const headings: NodeListOf<HTMLElement> | [] = article

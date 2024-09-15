@@ -1,5 +1,5 @@
 ---
-// Import section components
+// 导入部分组件
 import MainLayout from "@/layouts/MainLayout.astro";
 import ProductTabBtn from "@components/ui/buttons/ProductTabBtn.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
@@ -7,20 +7,20 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { SITE } from "@data/constants";
 
-// Global declaration for gsap animation library
+// 全局声明 gsap 动画库
 declare global {
   interface Window {
     gsap: any;
   }
 }
-// This gets the static paths for all the unique products
+// 获取所有独特产品的静态路径
 
 export async function getStaticPaths() {
   const productEntries = await getCollection("products", ({ id }) =>
     id.startsWith("zh/")
   );
   return productEntries.map((product) => {
-    const slugWithoutLang = product.slug.replace(/^zh\//, ""); // Remove the "zh/" prefix
+    const slugWithoutLang = product.slug.replace(/^zh\//, ""); // 移除 "zh/" 前缀
     return {
       params: { lang: "zh", slug: slugWithoutLang },
       props: { product },
@@ -189,12 +189,12 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                             </thead>
                             <tbody class="divide-y divide-neutral-300 dark:divide-neutral-700">
                               {product.data.tableData?.map((row) =>
-                                // Wrap each row's content in a separate <tr> element
+                                // 将每行的内容包裹在单独的 <tr> 元素中
                                 row.description.map((rowData) => (
                                   <tr>
-                                    {/* Iterate through each cell value in the row's description array */}
+                                    {/* 遍历每个单元格的值 */}
                                     {rowData.map((cellValue) => (
-                                      // Render each cell value in its own <td> element
+                                      // 在自己的 <td> 元素中渲染每个单元格的值
                                       <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-neutral-600 dark:text-neutral-400">
                                         {cellValue}
                                       </td>
@@ -227,7 +227,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
             <Image
               src={product.data.blueprints.first}
               class="h-full w-full object-cover object-center"
-              alt="Blueprint Illustration"
+              alt="蓝图插图"
               format={"avif"}
             />
           )
@@ -240,7 +240,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
             <Image
               src={product.data.blueprints.second}
               class="h-full w-full object-cover object-center"
-              alt="Blueprint Illustration"
+              alt="蓝图插图"
               format={"avif"}
             />
           )
