@@ -19,11 +19,14 @@ import construction from "@images/construction-image.avif";
 import tools from "@images/automated-tools.avif";
 import dashboard from "@images/dashboard-image.avif";
 
+// 导入组员大头照
+import { MemberHeads } from "@images/MemberHeadShot";
+
 const avatarSrcs: Array<string> = [
-  "@images/成员照片/苟凌云-生活照.jpg",
-  "@images/成员照片/苟凌云-生活照.jpg",
-  "@images/成员照片/苟凌云-生活照.jpg",
-  "@images/成员照片/苟凌云-生活照.jpg",
+  MemberHeads.苟凌云,
+  MemberHeads.崔永嘉,
+  MemberHeads.卢昊楠,
+  MemberHeads.周成,
 ];
 ---
 
@@ -39,10 +42,10 @@ const avatarSrcs: Array<string> = [
         class="text-yellow-400 dark:text-yellow-400">Dr. Ye's</span> Research Group`
     subTitle="Led by Professor Aijun Ye and Associate Professor Xiaowei Wang, with a dedicated team of 17 students."
     primaryBtn="Our Publications"
-    primaryBtnURL="/products"
+    primaryBtnURL="/Publications"
     secondaryBtn="Contact us"
     secondaryBtnURL="/contact"
-    withReview={true}
+    withReview={false}
     avatars={avatarSrcs}
     rating=`<span class="font-bold">4.8</span> / 5`
     starCount={4}
@@ -58,9 +61,9 @@ const avatarSrcs: Array<string> = [
 
   <FeaturesGeneral
     title="Meeting Industry Demands"
-    subTitle="At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert services, we're dedicated to helping you overcome obstacles and achieve your goals."
+    subTitle="At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert interests, we're dedicated to helping you overcome obstacles and achieve your goals."
     src={featureImage}
-    alt="ScrewFast products in floating boxes"
+    alt="ScrewFast Publications in floating boxes"
     features={features}
   />
 
@@ -119,7 +122,7 @@ const avatarSrcs: Array<string> = [
       {
         count: "35%",
         description:
-          "uptick in project efficiency with ScrewFast tools and services",
+          "uptick in project efficiency with ScrewFast tools and interests",
       },
       {
         count: "15.3%",

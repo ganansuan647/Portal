@@ -12,12 +12,12 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
 // 获取所有与产品相关的内容并按main.id排序
-const product: CollectionEntry<"products">[] = (
-  await getCollection("products", ({ id }) => {
+const publication: CollectionEntry<"Publications">[] = (
+  await getCollection("Publications", ({ id }) => {
     return id.startsWith("zh/");
   })
 ).sort(
-  (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
+  (a: CollectionEntry<"Publications">, b: CollectionEntry<"Publications">) =>
     a.data.main.id - b.data.main.id
 );
 
@@ -66,8 +66,8 @@ const testimonials = [
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/zh/products",
-    url: "https://screwfast.uk/zh/products",
+    "@id": "https://screwfast.uk/zh/Publications",
+    url: "https://screwfast.uk/zh/Publications",
     name: "工具 | ScrewFast",
     description:
       "探索ScrewFast工具的耐用性和精确性，旨在满足专业人士和爱好者的需求。",
@@ -109,12 +109,12 @@ const testimonials = [
     <!--遍历所有产品条目，并根据其位置显示CardSmall或CardWide。-->
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
       {
-        product.map((product, index) => {
+        publication.map((publication, index) => {
           const position = index % 4;
           if (position === 0 || position === 3) {
-            return <CardSmall product={product} productLocale="zh" />;
+            return <CardSmall publication={publication} publicationLocale="zh" />;
           } else {
-            return <CardWide product={product} productLocale="zh" />;
+            return <CardWide publication={publication} productLocale="zh" />;
           }
         })
       }

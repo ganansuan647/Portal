@@ -1,8 +1,9 @@
 
 const navBarLinks = [
   { name: "首页", url: "/zh" },
-  { name: "产品", url: "/zh/products" },
-  { name: "服务", url: "/zh/services" },
+  { name: "科研成果", url: "/zh/Publications" },
+  { name: "科研兴趣", url: "/zh/interests" },
+  { name: "成员", url: "/zh/members" },
   { name: "博客", url: "/zh/blog" },
   { name: "联系我们", url: "/zh/contact" },
 ];
@@ -12,17 +13,18 @@ const footerLinks = [
     section: "其他信息",
     links: [
       { name: "文档", url: "/zh/welcome-to-docs/" },
-      { name: "工具与设备", url: "/zh/products" },
-      { name: "建筑服务", url: "/zh/services" },
+      { name: "科研成果", url: "/zh/Publications" },
+      { name: "咨询", url: "/zh/interests" },
     ],
   },
   {
-    section: "公司",
+    section: "课题组",
     links: [
-      { name: "关于我们", url: "#" },
+      { name: "兴趣", url: "#" },
+      { name: "加入我们", url: "/zh/contact" },
       { name: "博客", url: "/zh/blog" },
       { name: "职业发展", url: "#" },
-      { name: "客户", url: "#" },
+      
     ],
   },
 ];

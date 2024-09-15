@@ -20,11 +20,14 @@ import tools from "@images/automated-tools.avif";
 import dashboard from "@images/dashboard-image.avif";
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
+// 导入组员大头照
+import { MemberHeads } from "@images/MemberHeadShot";
+
 const avatarSrcs: Array<string> = [
-  "@images/成员照片/苟凌云-生活照.jpg",
-  "@images/成员照片/苟凌云-生活照.jpg",
-  "@images/成员照片/苟凌云-生活照.jpg",
-  "@images/成员照片/苟凌云-生活照.jpg",
+  MemberHeads.苟凌云,
+  MemberHeads.崔永嘉,
+  MemberHeads.卢昊楠,
+  MemberHeads.周成,
 ];
 ---
 
@@ -39,10 +42,10 @@ const avatarSrcs: Array<string> = [
     title=`欢迎来到 <span class="text-yellow-500 dark:text-yellow-400">叶爱君</span> 课题组`
     subTitle="现有叶爱君教授，王晓伟教授和17名在读研究生"
     primaryBtn="科研成果"
-    primaryBtnURL={getRelativeLocaleUrl("zh", "products")}
+    primaryBtnURL={getRelativeLocaleUrl("zh", "Publications")}
     secondaryBtn="联系我们"
     secondaryBtnURL={getRelativeLocaleUrl("zh", "contact")}
-    withReview={true}
+    withReview={false}
     avatars={avatarSrcs}
     rating=`<span class="font-bold">4.8</span> / 5`
     starCount={4}

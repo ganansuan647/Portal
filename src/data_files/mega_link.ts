@@ -1,5 +1,5 @@
-// Define data structures for services and success stories
-export const servicesData = [
+// Define data structures for interests and success stories
+export const interestsData = [
   {
     title: "Explore Advice and Explanations",
     description:
@@ -15,8 +15,8 @@ export const servicesData = [
     url: "#",
   },
   {
-    title: "Expert Services",
-    description: "Go beyond tools with ScrewFast's expert services",
+    title: "Expert interests",
+    description: "Go beyond tools with ScrewFast's expert interests",
     icon: "rocket",
     url: "#",
   },

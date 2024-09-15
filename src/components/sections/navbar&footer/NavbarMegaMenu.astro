@@ -89,7 +89,7 @@ const homeUrl = Astro.currentLocale === "zh" ? "/zh" : "/";
         <!-- Navigation links and Authentication component -->
         {
           strings.navBarLinks.map((link) => {
-            if (link.name === "Services") {
+            if (link.name === "interests") {
               return <MegaMenuLink />;
             } else {
               return <NavLink url={link.url} name={link.name} />;

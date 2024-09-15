@@ -12,20 +12,20 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 
-// Fetching all the product related content and sorting it by main.id
-const product: CollectionEntry<"products">[] = (
-  await getCollection("products", ({ id }) => {
+// Fetching all the publication related content and sorting it by main.id
+const publication: CollectionEntry<"Publications">[] = (
+  await getCollection("Publications", ({ id }) => {
     return id.startsWith("en/");
   })
 ).sort(
-  (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
+  (a: CollectionEntry<"Publications">, b: CollectionEntry<"Publications">) =>
     a.data.main.id - b.data.main.id,
 );
 
 // Define variables for page content
-const title: string = "Products";
+const title: string = "Publications";
 const subTitle: string =
-  "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts. Each of our products is crafted with precision and built to last, ensuring you have the right tool for every job.";
+  "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts. Each of our Publications is crafted with precision and built to last, ensuring you have the right tool for every job.";
 
 // Testimonial data that will be rendered in the component
 const testimonials = [
@@ -61,7 +61,7 @@ const testimonials = [
   },
 ];
 
-const pageTitle: string = `Products | ${SITE.title}`;
+const pageTitle: string = `Publications | ${SITE.title}`;
 ---
 
 <MainLayout
@@ -69,15 +69,15 @@ const pageTitle: string = `Products | ${SITE.title}`;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/products",
-    "url": "https://screwfast.uk/products",
+    "@id": "https://screwfast.uk/Publications",
+    "url": "https://screwfast.uk/Publications",
     "name": "Hardware Tools | ScrewFast",
     "description": "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts.",
     "isPartOf": {
       "@type": "WebSite",
       "url": "https://screwfast.uk",
       "name": "ScrewFast",
-      "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs."
+      "description": "ScrewFast offers top-tier hardware tools and expert construction interests to meet all your project needs."
     },
     "inLanguage": "en-US"
   }}
@@ -102,16 +102,16 @@ const pageTitle: string = `Products | ${SITE.title}`;
       </div>
       <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
     </div>
-    <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
-    <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
+    <!--Displaying Publications in alternating styles. Alternative publication gets different card styling.-->
+    <!--Maps through all publication entries and displays them with either CardSmall or CardWide based on their position.-->
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
       {
-        product.map((product, index) => {
+        publication.map((publication, index) => {
           const position = index % 4;
           if (position === 0 || position === 3) {
-            return <CardSmall product={product} />;
+            return <CardSmall publication={publication} />;
           } else {
-            return <CardWide product={product} />;
+            return <CardWide publication={publication} />;
           }
         })
       }
