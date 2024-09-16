@@ -75,7 +75,7 @@ export default defineConfig({
           ],
         },
         {
-          label: "Construction Services",
+          label: "Construction interests",
           autogenerate: { directory: "construction" },
         },
         {

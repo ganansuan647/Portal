@@ -10,7 +10,7 @@ import TestimonialsSection from "@components/sections/testimonials/TestimonialsS
 import PricingSection from "@components/sections/pricing/PricingSection.astro";
 import FAQ from "@components/sections/misc/FAQ.astro";
 import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
-import heroImage from "@images/hero-image.avif";
+import bridgeImage from "@images/Seto-Great-Bridge-Inland-Sea-Kojima-Honshu.jpg";
 import faqs from "@data/zh/faqs.json";
 import features from "@data/zh/features.json";
 import pricing from "@data/zh/pricing.json";
@@ -20,45 +20,46 @@ import tools from "@images/automated-tools.avif";
 import dashboard from "@images/dashboard-image.avif";
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
+// 导入组员大头照
 const avatarSrcs: Array<string> = [
-  "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  "@images/MemberPhotos/HeadShot/苟凌云-大头照.png",
+  "@images/MemberPhotos/HeadShot/崔永嘉-大头照.png",
+  "@images/MemberPhotos/HeadShot/卢昊楠-大头照.png",
+  "@images/MemberPhotos/HeadShot/周成-大头照.png",
 ];
 ---
 
 <MainLayout lang="zh">
   <AnnouncementBanner
     btnId="dismiss-button"
-    btnTitle="在GitHub上探索ScrewFast"
+    btnTitle="查看我们的研究兴趣"
     url="https://github.com/mearashadowfax/ScrewFast"
   />
 
   <HeroSection
-    title=`用 <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span> 装备您的项目`
-    subTitle="高质量的硬件工具和专业施工服务，满足所有项目需求。"
-    primaryBtn="开始探索"
-    primaryBtnURL={getRelativeLocaleUrl("zh", "products")}
-    secondaryBtn="联系销售团队"
+    title=`欢迎来到 <span class="text-yellow-500 dark:text-yellow-400">叶爱君</span> 课题组`
+    subTitle="现有叶爱君教授，王晓伟教授和17名在读研究生"
+    primaryBtn="科研成果"
+    primaryBtnURL={getRelativeLocaleUrl("zh", "Publications")}
+    secondaryBtn="联系我们"
     secondaryBtnURL={getRelativeLocaleUrl("zh", "contact")}
-    withReview={true}
+    withReview={false}
     avatars={avatarSrcs}
     rating=`<span class="font-bold">4.8</span> / 5`
     starCount={4}
-    reviews=`来自超过 <span class="font-bold">12.8k</span> 条评论`
-    src={heroImage}
-    alt="装有各种硬件工具的ScrewFast产品箱堆"
+    reviews=`共计发表 <span class="font-bold">120</span> 篇高质量论文`
+    src={bridgeImage}
+    alt="日本濑户大桥"
   />
 
   <ClientsSection
-    title="信任行业领袖"
-    subTitle="发现行业巨头选择的可靠性。"
+    title="研究成果丰硕"
+    subTitle="获得学界广泛认可"
   />
 
   <FeaturesGeneral
-    title="满足行业要求"
-    subTitle="在ScrewFast，我们应对硬件和建筑行业面临的独特挑战。从尖端工具到专业服务，我们致力于帮助您克服障碍，实现目标。"
+    title="面向新一代韧性桥梁"
+    subTitle="响应国家号召，努力建设成为与国际大型桥梁及动力研究前沿接轨的培养高层次人才、开展高水平科学研究和进行高新技术成果转化的国家级重要基地和国际性中心。"
     src={featureImage}
     alt="ScrewFast产品在漂浮的箱子中"
     features={features}

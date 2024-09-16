@@ -174,11 +174,11 @@ src/
 │   ├── sections/         # Components for various sections of the website
 │   ├── ThemeIcon.astro   # Component for toggling light/dark themes
 │   └── ui/               # UI components categorized by functionality
-├── content/              # Markdown files for blog posts, insights, products, and site configuration
+├── content/              # Markdown files for blog posts, insights, Publications, and site configuration
 │   ├── blog/
 │   ├── docs/           
 │   ├── insights/         
-│   ├── products/         
+│   ├── Publications/         
 │   └── config.ts         # Contains site-wide configuration options
 ├── data_files/           # Strings stored as JSON files
 ├── images/               # Static image assets for use across the website
@@ -191,9 +191,9 @@ src/
 │   ├── contact.astro     
 │   ├── index.astro       # The landing/home page
 │   ├── insights/         
-│   ├── products/         
+│   ├── Publications/         
 │   ├── robots.txt.ts     # Dynamically generates robots.txt
-│   └── services.astro
+│   └── interests.astro
 └── utils/                # Shared utility functions and helpers
 
 ```
@@ -242,7 +242,7 @@ You can pass values to props directly in the page files for components used acro
 
 ```html
 <HeroSection
-  subTitle="Top-quality hardware tools and expert construction services for every project need."
+  subTitle="Top-quality hardware tools and expert construction interests for every project need."
   primaryBtn="Start Exploring"
   primaryBtnURL="/explore"
 />
@@ -267,8 +267,8 @@ Edit the `navBarLinks` array to adjust navigation bar links:
 // An array of links for the navigation bar
 export const navBarLinks: NavLink[] = [
   { name: "Home", url: "/" },
-  { name: "Products", url: "/products" },
-  { name: "Services", url: "/services" },
+  { name: "Publications", url: "/Publications" },
+  { name: "interests", url: "/interests" },
   { name: "Blog", url: "/blog" },
   { name: "Contact", url: "/contact" },
 ];
@@ -284,10 +284,10 @@ Similarly, adjust the links displayed in the footer by editing the `footerLinks`
 // An array of links for the footer
 export const footerLinks: FooterLinkSection[] = [
   {
-    section: "Product",
+    section: "publication",
     links: [
       { name: "Tools & Equipment", url: "/tools-equipment" },
-      { name: "Construction Services", url: "/construction-services" },
+      { name: "Construction interests", url: "/construction-interests" },
       { name: "Pricing", url: "/pricing" },
     ],
   },
@@ -385,7 +385,7 @@ Please note that smooth scrolling can affect accessibility and performance on so
 
 ### GSAP Integration
 
- For individual product pages, [GSAP](https://gsap.com/) has been integrated to add engaging animations that execute as soon as the product page loads. You can find and modify the GSAP configuration in the script sections of the product page file located at `src/pages/products/[...slug].astro` and the insights page at `src/pages/insights/[...slug].astro`:
+ For individual publication pages, [GSAP](https://gsap.com/) has been integrated to add engaging animations that execute as soon as the publication page loads. You can find and modify the GSAP configuration in the script sections of the publication page file located at `src/pages/Publications/[...slug].astro` and the insights page at `src/pages/insights/[...slug].astro`:
 
 ```astro
 <script>
@@ -396,7 +396,7 @@ Please note that smooth scrolling can affect accessibility and performance on so
 
 **Customizing Animations:**
 
-Please tailor the GSAP animations within this script to fit your project's look and feel. The provided example is a starting point, representing how to leverage GSAP for immediate visual impact as a product page loads.
+Please tailor the GSAP animations within this script to fit your project's look and feel. The provided example is a starting point, representing how to leverage GSAP for immediate visual impact as a publication page loads.
 
 **Modifying or Removing Animations:**
 
@@ -457,7 +457,7 @@ export const SEO = {
 };
 
 export const OG = {
-  title: `${SITE.title}: Hardware Tools & Construction Services`,
+  title: `${SITE.title}: Hardware Tools & Construction interests`,
   // Other OG properties...
 };
 ```
@@ -516,7 +516,7 @@ Structured data in JSON-LD format can be managed by the `Meta.astro` component, 
     "@type": "WebSite",
     "name": "ScrewFast",
     "url": "https://screwfast.uk",
-    "description": "Discover top-quality hardware tools and services"
+    "description": "Discover top-quality hardware tools and interests"
   }}
 >
 ```
