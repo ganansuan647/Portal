@@ -1,5 +1,5 @@
 ---
-// Import the necessary components
+// 导入必要的组件
 import MainLayout from "@/layouts/MainLayout.astro";
 import HeroSection from "@components/sections/landing/HeroSection.astro";
 import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
@@ -11,22 +11,20 @@ import PricingSection from "@components/sections/pricing/PricingSection.astro";
 import FAQ from "@components/sections/misc/FAQ.astro";
 import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
 import bridgeImage from "@images/Seto-Great-Bridge-Inland-Sea-Kojima-Honshu.jpg";
-import faqs from "@data/faqs.json";
-import features from "@data/features.json";
-import pricing from "@data/pricing.json";
+import faqs from "@data/zh/faqs.json";
+import features from "@data/zh/features.json";
+import pricing from "@data/zh/pricing.json";
 import featureImage from "@images/features-image.avif";
 import construction from "@images/construction-image.avif";
 import tools from "@images/automated-tools.avif";
 import dashboard from "@images/dashboard-image.avif";
 
 // 导入组员大头照
-import { MemberHeads } from "@images/MemberHeadShot";
-
 const avatarSrcs: Array<string> = [
-  MemberHeads.GLY,
-  MemberHeads.CYJ,
-  MemberHeads.LHN,
-  MemberHeads.ZC
+  "@/images/MemberPhotos/HeadShot/苟凌云-大头照.png",
+  "@/images/MemberPhotos/HeadShot/崔永嘉-大头照.png",
+  "@/images/MemberPhotos/HeadShot/卢昊楠-大头照.png",
+  "@/images/MemberPhotos/HeadShot/周成-大头照.png",
 ];
 ---
 
@@ -45,7 +43,7 @@ const avatarSrcs: Array<string> = [
     primaryBtnURL="/Publications"
     secondaryBtn="Contact us"
     secondaryBtnURL="/contact"
-    withReview={true}
+    withReview={false}
     avatars={avatarSrcs}
     rating=`<span class="font-bold">4.8</span> / 5`
     starCount={4}
