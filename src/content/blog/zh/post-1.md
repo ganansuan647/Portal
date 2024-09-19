@@ -2,6 +2,7 @@
 title: "崔永嘉"
 description: "2023级博士研究生."
 author: "Jacob"
+degree: "Doctor"
 authorImage: "@/images/blog/jacob.avif"
 authorImageAlt: "Avatar Description"
 pubDate: 2023-09-01

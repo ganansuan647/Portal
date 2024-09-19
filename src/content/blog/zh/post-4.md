@@ -1,7 +1,7 @@
 ---
 title: "苟凌云"
 description: "2024级博士研究生"
-author: "Olga Zabegina"
+author: "Master"
 role: "Directrice Marketing Stratégique"
 authorImage: "@/images/blog/anna.avif"
 authorImageAlt: "Avatar Description"

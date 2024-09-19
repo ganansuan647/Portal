@@ -2,6 +2,7 @@
 title: "Simplify Procurement and Stay Within Budget with ScrewFast"
 description: "Affordable, durable tools for efficient construction projects"
 author: "Olga Zabegina"
+degree: "Master"
 role: "Strategic Marketing Manager"
 authorImage: "@/images/blog/anna.avif"
 authorImageAlt: "Avatar Description"

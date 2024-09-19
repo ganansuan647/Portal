@@ -1,7 +1,7 @@
 ---
 title: "Simplifiez l'Approvisionnement et Restez dans les Limites du Budget avec ScrewFast"
 description: "Outils abordables et durables pour des projets de construction efficaces"
-author: "Olga Zabegina"
+author: "Master"
 role: "Directrice Marketing Stratégique"
 authorImage: "@/images/blog/anna.avif"
 authorImageAlt: "Avatar Description"

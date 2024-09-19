@@ -1,7 +1,7 @@
 ---
 title: "周成"
 description: "2022级博士研究生"
-author: "Brad"
+author: "Doctor"
 authorImage: "@/images/blog/brad.avif"
 authorImageAlt: "Avatar Description"
 pubDate: 2022-09-01

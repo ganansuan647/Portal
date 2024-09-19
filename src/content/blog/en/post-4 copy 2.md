@@ -2,6 +2,7 @@
 title: "Gou LinYun"
 description: "Class of 2024 Ph."
 author: "Olga Zabegina"
+degree: "Master"
 role: "Strategic Marketing Manager"
 authorImage: "@/images/blog/anna.avif"
 authorImageAlt: "Avatar Description"
