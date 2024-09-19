@@ -2,6 +2,7 @@
 title: "Enhancing Safety and Workmanship with ScrewFast Construction interests"
 description: "Quality construction interests for lasting results"
 author: "Brad"
+degree: "Master"
 authorImage: "@/images/blog/brad.avif"
 authorImageAlt: "Avatar Description"
 pubDate: 2024-02-10

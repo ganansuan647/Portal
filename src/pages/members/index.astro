@@ -26,8 +26,7 @@ const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
 const insightPosts: CollectionEntry<"insights">[] = englishInsightsEntries;
 
 // Separate the most recent post from others
-const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
-const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
+const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(0);
 
 // Define variables for page content
 const title: string = "Your Gateway to Construction Excellence";
@@ -61,7 +60,7 @@ const pageTitle: string = `Blog | ${SITE.title}`;
   }}
 >
   <section
-    class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full"
+    class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 4xl:max-w-full"
   >
     <!--Page header-->
     <div class="mx-auto max-w-3xl text-left sm:text-center">
@@ -83,16 +82,11 @@ const pageTitle: string = `Blog | ${SITE.title}`;
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
     <!--Blog posts grid-->
-    <div class="grid gap-6 lg:grid-cols-2">
+    <div class="grid gap-6 grid-cols-5 lg:grid-cols-5">
       {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} />)}
     </div>
   </section>
-  <!--Most recent blog post-->
-  <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <CardBlogRecent blogEntry={mostRecentPost} />
-  </section>
+
   <!--Insights section-->
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
