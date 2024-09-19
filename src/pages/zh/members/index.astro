@@ -25,8 +25,7 @@ const blogPosts: CollectionEntry<"blog">[] = chineseBlogEntries.sort(
 const insightPosts: CollectionEntry<"insights">[] = chineseInsightsEntries;
 
 // 将最新的文章与其他文章分开
-const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
-const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
+const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(0);
 
 // 定义页面内容的变量
 const title: string = "您通往建筑卓越的桥梁";
@@ -78,14 +77,14 @@ const pageTitle: string = `博客 | ${SITE.title}`;
 
   <section
   class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-><h1 class="text-3xl font-bold text-blue-600">博士生</h1>
+><h1 class="text-3xl font-bold text-blue-600">博士研究生</h1>
   <!-- 博士博客文章网格 -->
   <div class="grid gap-6 grid-cols-5 lg:grid-cols-5">
     {otherPosts
       .filter((blogEntry) => blogEntry.data.author === 'Doctor') // 筛选博士类别
       .map((blogEntry) => <CardBlog blogEntry={blogEntry} blogLocale="zh"/>)}
   </div>
-  <h1 class="text-3xl font-bold text-blue-600">硕士生</h1>
+  <h1 class="text-3xl font-bold text-blue-600">硕士研究生</h1>
   <!-- 硕士博客文章网格 -->
   <div class="grid gap-6 grid-cols-5 lg:grid-cols-5">
     {otherPosts
@@ -95,11 +94,6 @@ const pageTitle: string = `博客 | ${SITE.title}`;
 </section>
   
 
-  <!--最新博客文章-->
-  <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <CardBlogRecent blogEntry={mostRecentPost} recentBlogLocale="zh" />
   </section>
   <!--见解部分-->
   <section

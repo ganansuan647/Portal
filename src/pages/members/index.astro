@@ -26,8 +26,7 @@ const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
 const insightPosts: CollectionEntry<"insights">[] = englishInsightsEntries;
 
 // Separate the most recent post from others
-const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
-const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
+const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(0);
 
 // Define variables for page content
 const title: string = "Your Gateway to Construction Excellence";
@@ -87,12 +86,7 @@ const pageTitle: string = `Blog | ${SITE.title}`;
       {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} />)}
     </div>
   </section>
-  <!--Most recent blog post-->
-  <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <CardBlogRecent blogEntry={mostRecentPost} />
-  </section>
+
   <!--Insights section-->
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
