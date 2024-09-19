@@ -1,11 +1,11 @@
 ---
-title: "Optimisation de l'efficacité avec les outils de pointe de ScrewFast"
-description: "Innovation de l'efficacité de la construction avec des outils de précision et un soutien."
+title: "崔永嘉"
+description: "2023级博士研究生."
 author: "Jacob"
 authorImage: "@/images/blog/jacob.avif"
 authorImageAlt: "Avatar Description"
-pubDate: 2024-02-06
-cardImage: "@/images/blog/post-1.avif"
+pubDate: 2023-09-01
+cardImage: "@/images/MemberPhotos/崔永嘉-证件照.jpg"
 cardImageAlt: "Top view mechanical tools arrangement"
 readTime: 4
 tags:  ["outils", "construction", "flux de travail"]

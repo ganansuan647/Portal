@@ -81,7 +81,7 @@ const pageTitle: string = `博客 | ${SITE.title}`;
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
     <!--博客文章网格-->
-    <div class="grid gap-6 lg:grid-cols-2">
+    <div class="grid gap-6 grid-cols-5 lg:grid-cols-5">
       {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} blogLocale="zh"/>)}
     </div>
   </section>

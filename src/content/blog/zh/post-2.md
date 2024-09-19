@@ -1,11 +1,11 @@
 ---
-title: "Améliorer la Sécurité et l'Artisanat avec les interests de Construction de ScrewFast"
-description: "interests de construction de qualité pour des résultats durables"
+title: "周成"
+description: "2022级博士研究生"
 author: "Brad"
 authorImage: "@/images/blog/brad.avif"
 authorImageAlt: "Avatar Description"
-pubDate: 2024-02-10
-cardImage: "@/images/blog/post-2.avif"
+pubDate: 2022-09-01
+cardImage: "@/images/MemberPhotos/周成 证件照.png"
 cardImageAlt: "Man in black sweatpants using DEWALT circular saw and cutting a wood plank"
 readTime: 5
 tags: ["sécurité", "artisanat", "gestion"]

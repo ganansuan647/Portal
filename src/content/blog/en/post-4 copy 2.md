@@ -1,11 +1,11 @@
 ---
-title: "Simplify Procurement and Stay Within Budget with ScrewFast"
-description: "Affordable, durable tools for efficient construction projects"
+title: "Gou LinYun"
+description: "Class of 2024 Ph."
 author: "Olga Zabegina"
 role: "Strategic Marketing Manager"
 authorImage: "@/images/blog/anna.avif"
 authorImageAlt: "Avatar Description"
-pubDate: 2025-02-18
+pubDate: 2024-09-01
 cardImage: "@/images/blog/post-3.avif"
 cardImageAlt: "Side view worker wearing gloves"
 readTime: 3
