@@ -82,6 +82,7 @@ const pageTitle: string = `Publications | ${SITE.title}`;
     "inLanguage": "en-US"
   }}
 >
+
   <div
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
@@ -116,7 +117,7 @@ const pageTitle: string = `Publications | ${SITE.title}`;
         })
       }
     </section>
-  </div>
+    
   <!--Features statistics section-->
   <FeaturesStatsAlt
     title="Why Choose ScrewFast?"
@@ -132,4 +133,33 @@ const pageTitle: string = `Publications | ${SITE.title}`;
     title="What Our Customers Say"
     testimonials={testimonials}
   />
+  
+  <div class="btn-links flex flex-wrap gap-2">
+    <div>
+      <a class="btn btn-outline-primary btn-page-header btn-sm" href="/src/content/Publications/Articles/Du 等 - 2023 - Regional seismic risk and resilience assessment Methodological development, applicability, and futu.pdf" target="_blank" rel="noopener">
+        PDF
+      </a>
+    </div>
+    <a href="#" class="btn btn-outline-primary btn-page-header btn-sm js-cite-modal" data-filename="src\content\Publications\Articles\Regional seismic risk and resilience assessment2023.bib">
+      Cite
+    </a>
+    <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">
+      Code
+    </a>
+    <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">
+      数据集
+    </a>
+    <a class="btn btn-outline-primary btn-page-header btn-sm" href="/project/example/">
+      项目
+    </a>
+    <a class="btn btn-outline-primary btn-page-header btn-sm" href="/slides/example/" target="_blank">
+      幻灯片
+    </a>
+    <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://youtube.com" target="_blank" rel="noopener">
+      视频
+    </a>
+    <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">
+      源文档
+    </a>
+  </div>
 </MainLayout>
