@@ -1,0 +1,41 @@
+---
+// Import necessary modules and utilities
+import { Image } from "astro:assets";
+import { formatDate } from "@utils/utils";
+import type { CollectionEntry } from "astro:content";
+
+const { memberEntry, recentmemberLocale = "" } = Astro.props;
+
+interface Props {
+  memberEntry: CollectionEntry<"members">;
+  recentmemberLocale?: string;
+}
+---
+
+<a
+  class="group block rounded-xl outline-none ring-zinc-500 transition duration-300 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
+  href={recentmemberLocale && recentmemberLocale !== "en"
+    ? `/${recentmemberLocale}/members/${memberEntry.slug.replace(/^zh\//, "")}/`
+    : `/members/${memberEntry.slug.replace(/^en\//, "")}/`}
+  data-astro-prefetch
+>
+  <div>
+    <Image
+      class="aspect-video rounded-xl"
+      src={memberEntry.data.cardImage}
+      alt={memberEntry.data.cardImageAlt}
+      draggable={"false"}
+      format={"avif"}
+    />
+    <!-- The title of the member post -->
+    <h3
+      class="mt-2 text-balance text-lg font-medium text-neutral-800 group-hover:text-orange-400 dark:text-neutral-300 dark:group-hover:text-neutral-50"
+    >
+      {memberEntry.data.title}
+    </h3>
+    <!-- The formatted publication date of the member post -->
+    <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+      {formatDate(memberEntry.data.pubDate)}
+    </p>
+  </div></a
+>

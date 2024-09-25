@@ -18,6 +18,8 @@ import featureImage from "@images/features-image.avif";
 import construction from "@images/construction-image.avif";
 import tools from "@images/automated-tools.avif";
 import dashboard from "@images/dashboard-image.avif";
+import { Image } from 'astro:assets';
+import MentorCard from "@components/ui/cards/MentorCard.astro";
 
 // 导入组员大头照
 const avatarSrcs: Array<string> = [
@@ -26,6 +28,11 @@ const avatarSrcs: Array<string> = [
   "@/images/MemberPhotos/HeadShot/卢昊楠-大头照.png",
   "@/images/MemberPhotos/HeadShot/周成-大头照.png",
 ];
+
+// 使用动态导入
+const YePhoto = await import("../images/MemberPhotos/叶爱君.jpg").then(m => m.default);
+const WangPhoto = await import("../images/MemberPhotos/王晓伟.jpg").then(m => m.default);
+
 ---
 
 <MainLayout>
@@ -51,17 +58,42 @@ const avatarSrcs: Array<string> = [
     src={bridgeImage}
     alt="Seto Great Bridge"
   />
-
-  <ClientsSection
-    title="Abundant scholarly outcomes"
-    subTitle="Widely recognized by the academic community"
-  />
+  <!-- Update mentor information -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+    <MentorCard
+      name="Aijun Ye"
+      title="Professor, Doctoral Supervisor"
+      email="yeaijun@tongji.edu.cn"
+      researchAreas={["Bridge Seismic Resistance and Vibration Control Technology"]}
+      personalWebsite="http://faculty-civileng.tongji.edu.cn/yeaijun"
+      bio="Professor in the Department of Bridge Engineering at Tongji University, doctoral supervisor. Main research focus is on bridge seismic resistance and vibration control technology. Recipient of multiple honors including the National Science and Technology Progress First Prize."
+      image={YePhoto}
+      links={[
+        { icon: "email", url: "mailto:yeaijun@tongji.edu.cn", label: "Email" },
+        { icon: "website", url: "http://faculty-civileng.tongji.edu.cn/yeaijun", label: "Personal Website" }
+      ]}
+    />
+    
+    <MentorCard
+      name="Xiaowei Wang"
+      title="Associate Professor, Doctoral Supervisor"
+      email="xiaoweiwang@tongji.edu.cn"
+      researchAreas={["Bridge Resilience Seismic Theory and Technology", "Multi-hazard Risk for Infrastructure", "AI-Enabled Bridge Seismic Design"]}
+      personalWebsite="http://faculty-civileng.tongji.edu.cn/wangxiaowei"
+      bio="Associate Professor at the School of Civil Engineering, Tongji University, doctoral supervisor. Main research areas include bridge resilience seismic theory and technology, multi-hazard risk for infrastructure, and AI-enabled bridge seismic design."
+      image={WangPhoto}
+      links={[
+        { icon: "email", url: "mailto:xiaoweiwang@tongji.edu.cn", label: "Email" },
+        { icon: "website", url: "http://faculty-civileng.tongji.edu.cn/wangxiaowei", label: "Personal Website" }
+      ]}
+    />
+  </div>
 
   <FeaturesGeneral
-    title="Meeting Industry Demands"
-    subTitle="At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert interests, we're dedicated to helping you overcome obstacles and achieve your goals."
-    src={featureImage}
-    alt="ScrewFast Publications in floating boxes"
+    title="Towards a More Resilient Future"
+    subTitle="Waiting for your joining"
+    src={bridgeImage}
+    alt="some picture"
     features={features}
   />
 
@@ -100,7 +132,6 @@ const avatarSrcs: Array<string> = [
   <TestimonialsSection
     title="Fast-Track Your Projects"
     subTitle="At ScrewFast, we ensure a swift start with instant account setup. Experience the speed of construction redefined."
-    ;
     testimonials={[
       {
         content:

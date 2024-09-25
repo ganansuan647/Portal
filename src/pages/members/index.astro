@@ -1,16 +1,16 @@
 ---
 // Import necessary components, modules and types
 import MainLayout from "@/layouts/MainLayout.astro";
-import CardBlog from "@components/ui/cards/CardBlog.astro";
-import CardBlogRecent from "@components/ui/cards/CardBlogRecent.astro";
+import CardMember from "@components/ui/cards/CardMember.astro";
+import CardMemberGraduate from "@components/ui/cards/CardMemberGraduate.astro";
 import CardInsight from "@components/ui/cards/CardInsight.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 
-// Get all blogs post in English and sort them based on publish date
+// Get all members post in English and sort them based on publish date
 
-const englishBlogEntries = await getCollection("blog", ({ id }) => {
+const englishmemberEntries = await getCollection("members", ({ id }) => {
   return id.startsWith("en/");
 });
 
@@ -18,25 +18,25 @@ const englishInsightsEntries = await getCollection("insights", ({ id }) => {
   return id.startsWith("en/");
 });
 
-const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
-  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+const memberPosts: CollectionEntry<"members">[] = englishmemberEntries.sort(
+  (a: CollectionEntry<"members">, b: CollectionEntry<"members">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 // Get all insights posts
 const insightPosts: CollectionEntry<"insights">[] = englishInsightsEntries;
 
 // Separate the most recent post from others
-const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(0);
+const otherPosts: CollectionEntry<"members">[] = memberPosts.slice(0);
 
 // Define variables for page content
 const title: string = "Your Gateway to Construction Excellence";
 const subTitle: string =
-  "Explore the latest news, tips, and insights from ScrewFast to enhance your construction projects. From product spotlights to project management strategies, our blog is your go-to resource for all things hardware and construction.";
+  "Explore the latest news, tips, and insights from ScrewFast to enhance your construction projects. From product spotlights to project management strategies, our member is your go-to resource for all things hardware and construction.";
 const secondTitle: string = "Insights";
 const secondSubTitle: string =
   "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts. ";
 
-const pageTitle: string = `Blog | ${SITE.title}`;
+const pageTitle: string = `members | ${SITE.title}`;
 ---
 
 <MainLayout
@@ -44,9 +44,9 @@ const pageTitle: string = `Blog | ${SITE.title}`;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/blog",
-    url: "https://screwfast.uk/blog",
-    name: "Blog | ScrewFast",
+    "@id": "https://screwfast.uk/member",
+    url: "https://screwfast.uk/member",
+    name: "member | ScrewFast",
     description:
       "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.",
     isPartOf: {
@@ -60,30 +60,29 @@ const pageTitle: string = `Blog | ${SITE.title}`;
   }}
 >
   <section
-    class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 4xl:max-w-full"
-  >
-    <!--Page header-->
-    <div class="mx-auto max-w-3xl text-left sm:text-center">
-      <h1
-        class="block text-balance text-4xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-5xl lg:text-6xl"
-      >
-        {title}
-      </h1>
-
-      <p
-        class="mt-4 text-pretty text-lg text-neutral-600 dark:text-neutral-400"
-      >
-        {subTitle}
-      </p>
-    </div>
+  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  ><h1 class="text-3xl font-bold text-blue-600">博士研究生</h1>
+  <!-- 博士博客文章网格 -->
+  <div class="grid gap-6 grid-cols-5 lg:grid-cols-5">
+    {otherPosts
+      .filter((memberEntry) => memberEntry.data.author === 'Doctor') // 筛选博士类别
+      .map((memberEntry) => <CardMember memberEntry={memberEntry} memberLocale="zh"/>)}
+  </div>
+  <h1 class="text-3xl font-bold text-blue-600">硕士研究生</h1>
+  <!-- 硕士博客文章网格 -->
+  <div class="grid gap-6 grid-cols-5 lg:grid-cols-5">
+    {otherPosts
+      .filter((memberEntry) => memberEntry.data.author === 'Master') // 筛选硕士类别
+      .map((memberEntry) => <CardMember memberEntry={memberEntry} memberLocale="zh"/>)}
+  </div>
   </section>
 
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
-    <!--Blog posts grid-->
+    <!--member posts grid-->
     <div class="grid gap-6 grid-cols-5 lg:grid-cols-5">
-      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} />)}
+      {otherPosts.map((memberEntry) => <CardMember memberEntry={memberEntry} />)}
     </div>
   </section>
 

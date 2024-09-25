@@ -19,6 +19,7 @@ import construction from "@images/construction-image.avif";
 import tools from "@images/automated-tools.avif";
 import dashboard from "@images/dashboard-image.avif";
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import MentorCard from "@components/ui/cards/MentorCard.astro";
 
 // 导入组员大头照
 const avatarSrcs: Array<string> = [
@@ -27,6 +28,10 @@ const avatarSrcs: Array<string> = [
   "@images/MemberPhotos/HeadShot/卢昊楠-大头照.png",
   "@images/MemberPhotos/HeadShot/周成-大头照.png",
 ];
+
+// 使用动态导入
+const YePhoto = await import("../../images/MemberPhotos/叶爱君.jpg").then(m => m.default);
+const WangPhoto = await import("../../images/MemberPhotos/王晓伟.jpg").then(m => m.default);
 ---
 
 <MainLayout lang="zh">
@@ -52,10 +57,41 @@ const avatarSrcs: Array<string> = [
     alt="日本濑户大桥"
   />
 
-  <ClientsSection
+  <!-- <ClientsSection
     title="研究成果丰硕"
     subTitle="获得学界广泛认可"
-  />
+  /> -->
+
+  <!-- 更新导师信息 -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+    <MentorCard
+      name="叶爱君"
+      title="教授，博士生导师"
+      email="yeaijun@tongji.edu.cn"
+      researchAreas={["桥梁抗震与振动控制技术"]}
+      personalWebsite="http://faculty-civileng.tongji.edu.cn/yeaijun"
+      bio="同济大学桥梁工程系教授，博士生导师。主要研究方向为桥梁抗震与振动控制技术。获得多项荣誉，包括国家科技进步一等奖。"
+      image={YePhoto}
+      links={[
+        { icon: "email", url: "mailto:yeaijun@tongji.edu.cn", label: "邮箱" },
+        { icon: "website", url: "http://faculty-civileng.tongji.edu.cn/yeaijun", label: "个人网站" }
+      ]}
+    />
+    
+    <MentorCard
+      name="王晓伟"
+      title="副教授，博士生导师"
+      email="xiaoweiwang@tongji.edu.cn"
+      researchAreas={["桥梁韧性抗震理论与技术", "基础设施多灾害风险", "人工智能辅助桥梁抗震设计"]}
+      personalWebsite="http://faculty-civileng.tongji.edu.cn/wangxiaowei"
+      bio="同济大学土木工程学院副教授，博士生导师。主要研究领域包括桥梁韧性抗震理论与技术、基础设施多灾害风险以及人工智能辅助桥梁抗震设计。"
+      image={WangPhoto}
+      links={[
+        { icon: "email", url: "mailto:xiaoweiwang@tongji.edu.cn", label: "邮箱" },
+        { icon: "website", url: "http://faculty-civileng.tongji.edu.cn/wangxiaowei", label: "个人网站" }
+      ]}
+    />
+  </div>
 
   <FeaturesGeneral
     title="面向新一代韧性桥梁"

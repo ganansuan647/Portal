@@ -1,0 +1,22 @@
+---
+// Import necessary components
+import { Image } from "astro:assets";
+
+import type { CollectionEntry } from "astro:content";
+
+const { memberEntry } = Astro.props;
+
+interface Props {
+  memberEntry: CollectionEntry<"members">;
+}
+---
+
+<div class="flex-shrink-0">
+  <Image
+    class="size-[46px] rounded-full border-2 border-neutral-50"
+    src={memberEntry.data.authorImage}
+    alt={memberEntry.data.authorImageAlt}
+    draggable={"false"}
+    format={"avif"}
+  />
+</div>
