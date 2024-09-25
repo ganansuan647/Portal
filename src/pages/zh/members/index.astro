@@ -1,15 +1,15 @@
 ---
 // 导入必要的组件、模块和类型
 import MainLayout from "@/layouts/MainLayout.astro";
-import CardBlog from "@components/ui/cards/CardBlog.astro";
-import CardBlogRecent from "@components/ui/cards/CardBlogRecent.astro";
+import Cardmember from "@components/ui/cards/CardMember.astro";
+import CardmemberGraduate from "@components/ui/cards/CardMemberGraduate.astro";
 import CardInsight from "@components/ui/cards/CardInsight.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 // 获取所有中文成员文章并根据发布日期排序
 
-const chineseBlogEntries = await getCollection("blog", ({ id }) => {
+const chineseMemberEntries = await getCollection("members", ({ id }) => {
   return id.startsWith("zh/");
 });
 
@@ -17,15 +17,15 @@ const chineseInsightsEntries = await getCollection("insights", ({ id }) => {
   return id.startsWith("zh/");
 });
 
-const blogPosts: CollectionEntry<"blog">[] = chineseBlogEntries.sort(
-  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+const memberPosts: CollectionEntry<"members">[] = chineseMemberEntries.sort(
+  (a: CollectionEntry<"members">, b: CollectionEntry<"members">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 // 获取所有见解文章
 const insightPosts: CollectionEntry<"insights">[] = chineseInsightsEntries;
 
 // 将最新的文章与其他文章分开
-const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(0);
+const otherPosts: CollectionEntry<"members">[] = memberPosts.slice(0);
 
 // 定义页面内容的变量
 const title: string = "您通往建筑卓越的桥梁";
@@ -43,8 +43,8 @@ const pageTitle: string = `博客 | ${SITE.title}`;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://seismicye.top/zh/blog",
-    "url": "https://seismicye.top/zh/blog",
+    "@id": "https://seismicye.top/zh/member",
+    "url": "https://seismicye.top/zh/member",
     "name": "博客 | ScrewFast",
     "description": "通过ScrewFast专家团队的分析，保持对建筑行业最新趋势和发展的了解。",
     "isPartOf": {
@@ -81,15 +81,15 @@ const pageTitle: string = `博客 | ${SITE.title}`;
   <!-- 博士博客文章网格 -->
   <div class="grid gap-6 grid-cols-5 lg:grid-cols-5">
     {otherPosts
-      .filter((blogEntry) => blogEntry.data.author === 'Doctor') // 筛选博士类别
-      .map((blogEntry) => <CardBlog blogEntry={blogEntry} blogLocale="zh"/>)}
+      .filter((memberEntry) => memberEntry.data.author === 'Doctor') // 筛选博士类别
+      .map((memberEntry) => <Cardmember memberEntry={memberEntry} memberLocale="zh"/>)}
   </div>
   <h1 class="text-3xl font-bold text-blue-600">硕士研究生</h1>
   <!-- 硕士博客文章网格 -->
   <div class="grid gap-6 grid-cols-5 lg:grid-cols-5">
     {otherPosts
-      .filter((blogEntry) => blogEntry.data.author === 'Master') // 筛选硕士类别
-      .map((blogEntry) => <CardBlog blogEntry={blogEntry} blogLocale="zh"/>)}
+      .filter((memberEntry) => memberEntry.data.author === 'Master') // 筛选硕士类别
+      .map((memberEntry) => <Cardmember memberEntry={memberEntry} memberLocale="zh"/>)}
   </div>
 </section>
   

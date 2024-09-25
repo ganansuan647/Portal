@@ -1,0 +1,50 @@
+---
+// Import necessary components and utilities
+import AvatarBlog from "@components/ui/avatars/AvatarBlog.astro";
+import { Image } from "astro:assets";
+import { formatDate } from "@utils/utils";
+import type { CollectionEntry } from "astro:content";
+
+const { memberEntry, memberLocale = "" } = Astro.props;
+
+interface Props {
+  memberEntry: CollectionEntry<"members">;
+  memberLocale?: string;
+}
+---
+
+<!-- The following anchor tag is the main container for the card.
+     It's a link to the member post detailed page.
+     The data-astro-prefetch is an Astro specific Dynamic HTML feature,
+     which automatically prefetches the linked page to speed up navigation. -->
+     <a
+     class="group relative block rounded-xl outline-none ring-zinc-500 transition duration-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
+     href={memberLocale && memberLocale !== "en"
+       ? `/${memberLocale}/members/${memberEntry.slug.replace(/^zh\//, "")}/`
+       : `/members/${memberEntry.slug.replace(/^en\//, "")}/`}
+     data-astro-prefetch
+   >
+     <!-- The container for the member post's cover image. Uses astro:assets' Image for image source -->
+    <div class="bg-gradient  overflow-hidden">
+       <div class="flex flex-col items-center justify-center p-6">
+       <Image
+         class="h-80 w-60  object-cover group-hover:scale-110"
+         src={memberEntry.data.cardImage}
+         alt={memberEntry.data.cardImageAlt}
+         draggable={"false"}
+         loading={"eager"}
+         format={"avif"}
+       />
+       <div class="mt-4"></div>
+         <h3
+           class="text-xl font-semibold text-gray-800"
+         >
+           {memberEntry.data.title}
+         </h3>
+         <p class="mt-2 text-gray-500">
+           {memberEntry.data.description}
+         </p>
+       </div>
+     </div>
+   
+

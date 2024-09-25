@@ -1,8 +1,8 @@
 ---
 // 导入必要的组件和工具
 import MainLayout from "@/layouts/MainLayout.astro";
-import AvatarBlogLarge from "@components/ui/avatars/AvatarBlogLarge.astro";
-import CardRelated from "@components/ui/cards/CardRelated.astro";
+import AvatarMemberLarge from "@components/ui/avatars/AvatarMemberLarge.astro";
+import MemberRelated from "@components/ui/cards/MemberRelated.astro";
 import Bookmark from "@components/ui/buttons/Bookmark.astro";
 import SocialShare from "@components/ui/buttons/SocialShare.astro";
 import PostFeedback from "@components/ui/feedback/PostFeedback.astro";
@@ -14,10 +14,10 @@ import { SITE } from "@data/constants";
 
 // 更新 getStaticPaths 以支持中文文章
 export async function getStaticPaths() {
-  const blogPosts = await getCollection("blog", ({ id }) =>
+  const memberPosts = await getCollection("members", ({ id }) =>
     id.startsWith("zh/")
   );
-  return blogPosts.map((post) => {
+  return memberPosts.map((post) => {
     const slugWithoutLang = post.slug.replace(/^zh\//, ""); // 移除 "zh/" 前缀
     return {
       params: { lang: "zh", slug: slugWithoutLang },
@@ -29,12 +29,12 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 
 // 获取相关的文章
-const blogPosts: CollectionEntry<"blog">[] = await getCollection(
-  "blog",
+const memberPosts: CollectionEntry<"members">[] = await getCollection(
+  "members",
   ({ id }) => id.startsWith("zh/")
 );
-const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
-  (blogEntry) => blogEntry.slug !== post.slug
+const relatedPosts: CollectionEntry<"members">[] = memberPosts.filter(
+  (memberEntry) => memberEntry.slug !== post.slug
 );
 
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;
@@ -45,7 +45,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
     <div class="max-w-2xl">
       <div class="mb-6 flex items-center justify-between">
         <div class="flex w-full gap-x-5 sm:items-center sm:gap-x-3">
-          <AvatarBlogLarge blogEntry={post} />
+          <AvatarMemberLarge memberEntry={post} />
           <div class="grow">
             <div class="flex items-center justify-between gap-x-2">
               <div>
@@ -155,7 +155,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
     <div class="grid grid-cols-2 gap-6">
       {
         relatedPosts.map((entry) => (
-          <CardRelated blogEntry={entry} recentBlogLocale="zh" />
+          <MemberRelated memberEntry={entry} recentmemberLocale="zh" />
         ))
       }
     </div>

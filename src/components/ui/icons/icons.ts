@@ -523,4 +523,32 @@ export const Icons = {
     strokeLinejoin: "round",
     stroke: "currentColor",
   },
+  email: {
+    paths: [
+      {
+        d: "M16 12a4 4 0 1 0-8 0 4 4 0 0 0 8 0Zm0 0v1.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-9 9 2.5 2.5 0 0 0 0-5Z",
+      },
+    ],
+    class: "mt-1 size-5 flex-shrink-0",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    strokeWidth: "1.5",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    stroke: "currentColor",
+  },
+  website: {
+    paths: [
+      {
+        d: "M12 21a9 9 0 0 1-9-9 2.5 2.5 0 0 1 5 0 9 9 0 0 1 9 9Z",
+      },
+    ],
+    class: "mt-1 size-5 flex-shrink-0",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    strokeWidth: "1.5",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    stroke: "currentColor",
+  },
 };

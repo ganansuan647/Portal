@@ -1,12 +1,12 @@
 import ogImageSrc from "@images/social.png";
 
 export const SITE = {
-  title: "ScrewFast",
-  tagline: "Top-quality Hardware Tools",
-  description: "ScrewFast offers top-tier hardware tools and expert construction interests to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
-  description_short: "ScrewFast offers top-tier hardware tools and expert construction interests to meet all your project needs.",
-  url: "https://screwfast.uk",
-  author: "Emil Gulamov",
+  title: "叶爱君课题组(Seismic Ye Group)",
+  tagline: "桥梁抗震与减隔震",
+  description: "叶爱君课题组致力于桥梁抗震与减隔震技术的研究与应用。",
+  description_short: "面向韧性的新一代桥梁",
+  url: "https://seismicye.top",
+  author: "叶爱君课题组",
 };
 
 export const SEO = {
@@ -15,7 +15,7 @@ export const SEO = {
   structuredData: {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    inLanguage: "en-US",
+    inLanguage: "zh-CN",
     "@id": SITE.url,
     url: SITE.url,
     name: SITE.title,
@@ -30,10 +30,10 @@ export const SEO = {
 };
 
 export const OG = {
-  locale: "en_US",
+  locale: "zh_CN",
   type: "website",
   url: SITE.url,
-  title: `${SITE.title}: : Hardware Tools & Construction interests`,
-  description: "Equip your projects with ScrewFast's top-quality hardware tools and expert construction interests. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!",
+  title: `${SITE.title}: 桥梁抗震与减隔震研究`,
+  description: "叶爱君课题组致力于桥梁抗震与减隔震技术的研究与应用。我们专注于开发创新的抗震解决方案，提高桥梁结构的韧性和安全性。加入我们，共同探索桥梁工程的未来。",
   image: ogImageSrc,
 };
